@@ -8,6 +8,7 @@
     "backend": "cd backend && flask run",
     "setup": "concurrently \"npm run frontendsetup\" \"npm run backendsetup\"",
     "frontendsetup": "cd frontend && npm install",
-    "backendsetup": "cd backend && pip install -r requirements.txt"
+    "backendsetup": "cd backend && pip install -r requirements.txt",
+    "database": "docker-compose up -d"
   }
 }
