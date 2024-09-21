@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "concurrently": "^9.0.1"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run frontend\" \"npm run backend\"",
+    "frontend": "cd frontend && npm run dev",
+    "backend": "cd backend && flask run",
+    "setup": "concurrently \"npm run frontendsetup\" \"npm run backendsetup\"",
+    "frontendsetup": "cd frontend && npm install",
+    "backendsetup": "cd backend && pip install -r requirements.txt"
+  }
+}
