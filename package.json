@@ -9,6 +9,7 @@
     "setup": "concurrently \"npm run frontendsetup\" \"npm run backendsetup\"",
     "frontendsetup": "cd frontend && npm install",
     "backendsetup": "cd backend && pip install -r requirements.txt",
-    "database": "docker-compose up -d"
+    "database": "docker-compose up -d",
+    "dbsetup": "docker exec -it postgres-db psql -U myuser -d db"
   }
 }
