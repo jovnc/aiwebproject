@@ -1,7 +1,7 @@
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
-import Navbar from "./components/ui/navbar";
-import Footer from "./components/ui/Footer";
+import Navbar from "./components/nav/Navbar";
+import Footer from "./components/nav/Footer";
 
 const Layout = () => (
   <>
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <main className="purple-gradient-bg">
-      <RouterProvider router={router}></RouterProvider>
+      <RouterProvider router={router} />
     </main>
   );
 }
