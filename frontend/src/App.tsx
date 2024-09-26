@@ -2,13 +2,15 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/nav/Navbar";
 import Footer from "./components/nav/Footer";
+import LoginPage from "./pages/Login";
 
 const Layout = () => (
-  <>
+  <div className="flex flex-col w-full min-h-screen">
     <Navbar />
     <Outlet />
+    <div className="flex-grow" />
     <Footer />
-  </>
+  </div>
 );
 
 const router = createBrowserRouter([
@@ -20,14 +22,17 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />, // Home page as a child route
       },
-      // Add more routes as needed
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
     ],
   },
 ]);
 
 function App() {
   return (
-    <main className="purple-gradient-bg">
+    <main className="w-full min-h-screen">
       <RouterProvider router={router} />
     </main>
   );

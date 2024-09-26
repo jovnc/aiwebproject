@@ -1,46 +1,41 @@
+import api from "@/api";
 import { useState } from "react";
-import axios from "axios";
+import { Button } from "../ui/button";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/login", {
-        username,
-        password,
-      });
-      const token = response.data.access_token;
-      localStorage.setItem("token", token);
-      setMessage("Login successful!");
+      const response = await api.post("/login", { username, password });
+      const { access_token } = response.data;
+
+      // Store JWT in localStorage
+      localStorage.setItem("token", access_token);
+      alert("Logged in successfully!");
     } catch (error) {
-      setMessage("Login failed!");
+      alert("Invalid credentials");
     }
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-      </form>
-      <p>{message}</p>
-    </div>
+    <form onSubmit={handleLogin}>
+      <input
+        type="text"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        placeholder="Username"
+      />
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="Password"
+      />
+      <Button type="submit">Login</Button>
+    </form>
   );
 };
 
