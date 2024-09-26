@@ -5,7 +5,7 @@ import Footer from "./components/nav/Footer";
 import LoginPage from "./pages/Login";
 
 const Layout = () => (
-  <div className="flex flex-col w-full min-h-screen">
+  <div className="flex flex-col w-full h-screen">
     <Navbar />
     <Outlet />
     <div className="flex-grow" />
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <main className="w-full min-h-screen">
+    <main className="w-full min-h-screen bg-slate-100">
       <RouterProvider router={router} />
     </main>
   );
