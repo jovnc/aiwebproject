@@ -2,7 +2,7 @@ import Login from "@/components/auth/Login";
 
 function LoginPage() {
   return (
-    <div>
+    <div className="h-screen w-full">
       <Login />
     </div>
   );

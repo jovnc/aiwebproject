@@ -1,4 +1,5 @@
 import React from "react";
+import template_profile from "../../../public/template_profile.png";
 
 const FocusCard = () => {
   return (
